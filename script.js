@@ -58,16 +58,20 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
     
-    // Add click handlers for download buttons (placeholder)
+    // Add click handlers for download buttons - FIXED VERSION
     const downloadBtns = document.querySelectorAll('.download-btn');
     downloadBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Add your download/redirect logic here
-            console.log('Download button clicked:', this.textContent);
+            const href = this.getAttribute('href');
             
-            // Example: Show a toast notification
-            showToast('Feature coming soon!');
+            // Only prevent default and show toast for buttons without proper download links
+            if (!href || href === '#' || href === '') {
+                e.preventDefault();
+                console.log('Download button clicked:', this.textContent);
+                showToast('Download link not available yet!');
+            }
+            // For buttons with actual file paths, let the default download behavior happen
+            // No need to prevent default - the browser will handle the download
         });
     });
     
