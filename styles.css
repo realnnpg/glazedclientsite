@@ -152,9 +152,9 @@ section {
 }
 
 .download-card:hover {
-    transform: scale(1.08);
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
+    transform: scale(1.05);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
 .download-icon {
@@ -260,9 +260,9 @@ section {
 }
 
 .feature-card:hover {
-    transform: scale(1.08);
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
+    transform: scale(1.1);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
 .feature-icon {
@@ -340,9 +340,9 @@ section {
 }
 
 .faq-card:hover {
-    transform: scale(1.08);
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
+    transform: scale(1.05);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
 .faq-header {
@@ -409,14 +409,12 @@ section {
     text-decoration: none;
     color: inherit;
     display: block;
-    transform: scale(1);
-    transform-origin: center;
 }
 
 .connection-card:hover {
-    transform: scale(1.08);
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
+    transform: scale(1.05);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
 .connection-icon {
@@ -494,14 +492,12 @@ section {
     padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
-    transform: scale(1);
-    transform-origin: center;
 }
 
 .credit-card:hover {
-    transform: scale(1.08);
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
+    transform: scale(1.05);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
 .credit-icon {
@@ -646,6 +642,254 @@ section {
     }
 }
 
+/* More Card Specific Styling */
+.more-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.more-card:hover {
+    transform: scale(1.05);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.modal-header h2 {
+    color: #a855f7;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close {
+    color: #9ca3af;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.close:hover {
+    color: #a855f7;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.additional-credits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.additional-credit-card {
+    background: rgba(17, 24, 39, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.additional-credit-card:hover {
+    transform: scale(1.03);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.15);
+}
+
+.additional-credit-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 auto 1rem;
+    background: linear-gradient(45deg, #a855f7, #a855f7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.additional-credit-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.additional-credit-card p {
+    color: #d1d5db;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Discord Join Section */
+.discord-join {
+    padding: 3rem 0;
+}
+
+.discord-join-box {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 215, 0, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.discord-join-box:hover {
+    transform: scale(1.02);
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.discord-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 2rem;
+}
+
+.discord-join-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.discord-join-description {
+    font-size: 1.125rem;
+    color: #e2e8f0;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.discord-join-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #5865f2;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+    position: relative;
+    z-index: 1;
+}
+
+.discord-join-btn:hover {
+    background: #4752c4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+}
+
+.discord-join-btn i {
+    font-size: 1.25rem;
+}
+
+/* Source Code Button */
+.source-code-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #6b7280;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.source-code-btn:hover {
+    background: #4b5563;
+    transform: translateY(-1px);
+}
+
+.source-code-btn i {
+    font-size: 1rem;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -675,6 +919,45 @@ section {
     .container {
         padding: 0 1rem;
     }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .additional-credits-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .discord-join-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .discord-join-title {
+        font-size: 2rem;
+    }
+    
+    .discord-join-description {
+        font-size: 1rem;
+    }
+    
+    .discord-join-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -693,5 +976,14 @@ section {
     .features-grid,
     .credits-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .discord-join-box {
+        padding: 1.5rem 1rem;
+    }
+    
+    .discord-join-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
