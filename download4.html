@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-        <meta http-equiv="refresh" content="0; URL='https://glazedclient.com/1.21.4/glazed-1.21.4-n-12.jar'">
-
+    <title>Downloading File...</title>
     <script>
-                window.location.href = "https://glazedclient.com/1.21.4/glazed-1.21.4-n-12.jar";
-
+        // Start download immediately
+        window.addEventListener('load', function() {
+            // Create invisible iframe to trigger download
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = 'https://glazedclient.com/1.21.4/glazed-1.21.4-n-12.jar';
+            document.body.appendChild(iframe);
+            
+            // Redirect after a very short delay (0.1 seconds)
+            setTimeout(function() {
+                window.location.href = 'https://docs.glazedclient.com';
+            }, 100);
+        });
     </script>
-    
 </head>
 <body>
-    <div class="container">
-        <h1>File is downloading...</h1>
-
-        <p>If the file didnt get downloaded please contact support. <a>https://discord.com/invite/glazedclient/</a>.</p>
-        <p>Read the docs for more info: <a>https://docs.glazedclient.com/</a>.</p>
+    <p>Downloading file... Redirecting to documentation shortly.</p>
+    <p>If it didnt work please contact support on discord https://discord.com/invite/glazedclient</p>
 
 </body>
 </html>
