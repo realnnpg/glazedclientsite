@@ -130,6 +130,15 @@ section {
     margin-bottom: 2rem;
 }
 
+/* Special highlight for 1.21.8 version cards */
+.version-group-1-21-8 .download-card {
+    border: 2px solid #f59e42;
+    box-shadow: 0 0 30px rgba(245, 158, 66, 0.15);
+}
+.version-group-1-21-8 .version-title {
+    color: #f59e42;
+}
+
 .download-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
