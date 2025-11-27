@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+// Icons
+const icons = {
+  combat: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
+  visuals: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`,
+  automation: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  sword: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  target: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
+  cart: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />`,
+  eye: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`,
+  map: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.806-.984C19.944 6.51 19.486 6.5 19.486 6.5L15 7.5m0 12.5V7.5" />`,
+  cube: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
+  chat: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />`,
+  alert: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  pearl: `<circle cx="12" cy="12" r="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />`,
+  anchor: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V6m0 0l-3 3m3-3l3 3M5.5 19a6.5 6.5 0 1013 0" />`,
+  totem: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />`,
+  check: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />`
+};
+
+// Risk Levels: safe = 🟢, medium = 🟡, high = 🔴
+const categories = [
+  {
+    title: "Automation & Utility",
+    icon: icons.automation,
+    features: [
+      { name: "AH Sell", description: "Automatically sells all hotbar items using /ah sell", icon: icons.cart, risk: "safe" },
+      { name: "AH Sniper", description: "Automatically snipes items from auction house for cheap prices", icon: icons.target, risk: "safe" },
+      { name: "Auto Blaze Rod Order", description: "Automatically buys/sells blaze rods in orders for profit (FAST MODE)", icon: icons.cart, risk: "safe" },
+      { name: "Auto Order", description: "Automatically orders items from the server shop", icon: icons.cart, risk: "safe" },
+      { name: "Auto Pearl Chain", description: "Chains pearls after teleport detection", icon: icons.pearl, risk: "medium" },
+      { name: "Auto Sell", description: "Automatically sells items", icon: icons.cart, risk: "safe" },
+      { name: "Auto Shell Order", description: "Buys shulker shells + sells in orders with player targeting", icon: icons.cart, risk: "safe" },
+      { name: "Auto Shulker Order", description: "Buys shulkers + sells in orders for profit with player targeting", icon: icons.cart, risk: "safe" },
+      { name: "Auto Shulker Shell Order", description: "Buys shulker shells + sells in orders for profit (FAST MODE)", icon: icons.cart, risk: "safe" },
+      { name: "Auto Spawner Sell", description: "Drops bones from spawner + sells them", icon: icons.cart, risk: "safe" },
+      { name: "Blaze Rod Dropper", description: "Buys blaze rods + drops them", icon: icons.cart, risk: "safe" },
+      { name: "Coord Snapper", description: "Copies coordinates to clipboard + optional webhook", icon: icons.map, risk: "safe" },
+      { name: "Crate Buyer", description: "Automatically buys common crate items", icon: icons.cart, risk: "safe" },
+      { name: "Emergency Seller", description: "Panic-sells selected items", icon: icons.alert, risk: "safe" },
+      { name: "Freecam Mining", description: "Freecam with real-position mining", icon: icons.cube, risk: "safe" },
+      { name: "Hide Scoreboard", description: "Hides sidebar scoreboard", icon: icons.eye, risk: "safe" },
+      { name: "Home Reset", description: "Runs /delhome + /sethome for a selected slot", icon: icons.map, risk: "safe" },
+      { name: "No Block Interact", description: "Lets you pearl through containers by blocking GUI but still throwing pearls", icon: icons.pearl, risk: "safe" },
+      { name: "Order Dropper", description: "Processes orders + drops items", icon: icons.cart, risk: "safe" },
+      { name: "Order Sniper", description: "Snipes orders and sells for your price", icon: icons.target, risk: "safe" },
+      { name: "Player Detection", description: "Detects players in the world", icon: icons.eye, risk: "safe" },
+      { name: "Rain Noti", description: "Notifies when it starts raining", icon: icons.chat, risk: "safe" },
+      { name: "RTP Base Finder", description: "Mines to Y=-58 then runs /rtp east", icon: icons.map, risk: "high" },
+      { name: "RTP End Base Finder", description: "RTPs in the End searching for stashes", icon: icons.map, risk: "medium" },
+      { name: "RTPer", description: "RTP to coordinates or find specific biomes", icon: icons.map, risk: "safe" },
+      { name: "RTP Nether Base Finder", description: "RTPs Nether searching for stashes", icon: icons.map, risk: "medium" },
+      { name: "Shop Buyer", description: "Buys selected items from PVP shop", icon: icons.cart, risk: "safe" },
+      { name: "Shulker Dropper", description: "Buys shulkers + drops them", icon: icons.cart, risk: "safe" },
+      { name: "Spawner Dropper", description: "Drops all spawner loot", icon: icons.cube, risk: "safe" },
+      { name: "Spawner Order", description: "Orders all spawner loot", icon: icons.cart, risk: "high" },
+      { name: "Spawner Protect", description: "Breaks spawner + stores it when player detected", icon: icons.cube, risk: "medium" },
+      { name: "Tab Detector", description: "Detects when specific players join/leave", icon: icons.eye, risk: "safe" },
+      { name: "TPA All Macro", description: "Cycles players + sends /tpa or /tpahere", icon: icons.chat, risk: "medium" },
+      { name: "TPA Macro", description: "Spam-sends /tpa or /tpahere + auto-clicks confirmation", icon: icons.chat, risk: "safe" },
+      { name: "Tunnel Base Finder", description: "Mines downward, then uses #tunnel horizontally", icon: icons.map, risk: "high" },
+      { name: "UI Helper", description: "Helps manage Glazed UI and settings", icon: icons.eye, risk: "safe" }
+    ]
+  },
+  {
+    title: "ESP & Visuals",
+    icon: icons.visuals,
+    features: [
+      { name: "1x1x1 Holes", description: "Highlights small player-made air holes", icon: icons.eye, risk: "safe" },
+      { name: "Advanced Stash Finder", description: "Stash finder with webhook + auto disconnect", icon: icons.map, risk: "safe" },
+      { name: "Bedrock Void ESP", description: "ESP for bedrock void patterns", icon: icons.eye, risk: "safe" },
+      { name: "Beehive ESP", description: "Detects full beehives with threading + tracer", icon: icons.eye, risk: "safe" },
+      { name: "Block Notifier", description: "Notifies when selected blocks appear + ESP", icon: icons.chat, risk: "safe" },
+      { name: "Chunk Finder", description: "Finds suspicious chunk patterns", icon: icons.map, risk: "safe" },
+      { name: "Cluster Finder", description: "ESP for amethyst clusters + buds", icon: icons.eye, risk: "safe" },
+      { name: "Collectible ESP", description: "Highlights framed collectibles + banners", icon: icons.eye, risk: "safe" },
+      { name: "Covered Hole", description: "Detects covered holes with performance optimization", icon: icons.eye, risk: "safe" },
+      { name: "Deepslate ESP", description: "ESP for deepslate variants", icon: icons.cube, risk: "safe" },
+      { name: "Dripstone ESP", description: "Detects long dripstones with threading", icon: icons.eye, risk: "safe" },
+      { name: "Drowned Trident ESP", description: "Highlights drowned with tridents", icon: icons.target, risk: "safe" },
+      { name: "Fake Scoreboard", description: "Custom Glazed scoreboard", icon: icons.chat, risk: "safe" },
+      { name: "Hole Tunnel Stairs ESP", description: "Highlights holes, tunnels, stairs", icon: icons.map, risk: "safe" },
+      { name: "Kelp ESP", description: "Highlights suspicious kelp chunk patterns", icon: icons.eye, risk: "safe" },
+      { name: "Llama ESP", description: "Detects llamas", icon: icons.eye, risk: "safe" },
+      { name: "Pillager ESP", description: "ESP for pillagers + tracers + webhook", icon: icons.target, risk: "safe" },
+      { name: "Piston ESP", description: "ESP for pistons + sticky pistons", icon: icons.cube, risk: "safe" },
+      { name: "Region Map", description: "Displays region information overlay", icon: icons.map, risk: "safe" },
+      { name: "Rotated Deepslate ESP", description: "Highlights rotated deepslate blocks", icon: icons.cube, risk: "safe" },
+      { name: "Skeleton ESP", description: "Renders skeleton model inside players (no legs)", icon: icons.totem, risk: "safe" },
+      { name: "Spawner Notifier", description: "Notifies when spawners are detected + ESP", icon: icons.alert, risk: "safe" },
+      { name: "Sweet Berry ESP", description: "Detects berry bushes at specific growth stages", icon: icons.eye, risk: "safe" },
+      { name: "Villager ESP", description: "Detects villagers + zombie villagers", icon: icons.totem, risk: "safe" },
+      { name: "Vine ESP", description: "Highlights vines touching the ground", icon: icons.eye, risk: "safe" },
+      { name: "Wandering ESP", description: "Detects wandering traders", icon: icons.totem, risk: "safe" }
+    ]
+  },
+  {
+    title: "PvP & Combat",
+    icon: icons.combat,
+    features: [
+      { name: "Aim Assist", description: "Aims at entities (Grim AC v3 bypass)", icon: icons.target, risk: "medium" },
+      { name: "Anchor Macro", description: "Automatically blows anchors", icon: icons.anchor, risk: "high" },
+      { name: "Anti Trap", description: "Escape armor stands + minecart traps", icon: icons.alert, risk: "medium" },
+      { name: "Auto Inv Totem", description: "Moves totems to offhand after pop", icon: icons.totem, risk: "medium" },
+      { name: "Breach Swap", description: "Mace swap + return in same tick", icon: icons.sword, risk: "high" },
+      { name: "Chest & Shulker Stealer", description: "Steals items from containers", icon: icons.cart, risk: "medium" },
+      { name: "Double Anchor Macro", description: "Places + charges 2 anchors", icon: icons.anchor, risk: "high" },
+      { name: "Elytra Firework", description: "Uses firework automatically. (Ban risk if no firework in hand)", icon: icons.pearl, risk: "safe" },
+      { name: "Elytra Swap", description: "Swap elytra/chestplate once", icon: icons.totem, risk: "medium" },
+      { name: "Hold Hotbar Totem", description: "Auto-switch to first totem after pop", icon: icons.totem, risk: "medium" },
+      { name: "Hover Totem", description: "Equips offhand totem when hovering in inv", icon: icons.totem, risk: "medium" },
+      { name: "Human Triggerbot", description: "Hits targets within 3 blocks (Grim AC v3 bypass)", icon: icons.sword, risk: "medium" },
+      { name: "Jump Reset Macro", description: "Legit sprint reset", icon: icons.sword, risk: "medium" },
+      { name: "Key Pearl", description: "Switches + throws pearl", icon: icons.pearl, risk: "medium" },
+      { name: "Legit Anchor Macro", description: "Charges/explodes anchors legitimately", icon: icons.anchor, risk: "safe" },
+      { name: "Legit Crystal Macro", description: "Fast crystal placing", icon: icons.cube, risk: "safe" },
+      { name: "Quick Shield Breaker", description: "Axe swap + auto attack (Grim AC v3 update)", icon: icons.sword, risk: "medium" },
+      { name: "Stun Mace", description: "Axe + mace swap in same tick", icon: icons.sword, risk: "medium" },
+      { name: "Sword Axe Place Cobweb", description: "Right-click cobweb then switch back", icon: icons.sword, risk: "medium" },
+      { name: "Sword Place Obsidian", description: "Right-click obsidian then switch back", icon: icons.cube, risk: "medium" },
+      { name: "Tap Reset Macro", description: "Performs S-tap after hit", icon: icons.sword, risk: "safe" },
+      { name: "UD Triggerbot", description: "Attacks crosshair target legitimately", icon: icons.target, risk: "medium" },
+      { name: "Wind Pearl Macro", description: "Throws pearl then wind charge", icon: icons.pearl, risk: "medium" }
+    ]
+  }
+];
+---
+
+<Layout title="Glazed - Features">
+	<div class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+                <span class="text-white">Feature </span>
+                <span class="text-brand-primary text-glow">List</span>
+            </h1>
+            <p class="text-gray-400 text-xl max-w-2xl mx-auto mb-8">Explore the powerful modules included in Glazed.</p>
+            
+            <!-- Legend -->
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-mono">
+                <div class="flex items-center gap-2 bg-brand-surface px-4 py-2 rounded-full border border-white/5">
+                    <span class="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                    <span class="text-green-400">Undetectable</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-surface px-4 py-2 rounded-full border border-white/5">
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></span>
+                    <span class="text-yellow-400">Use at Risk</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-surface px-4 py-2 rounded-full border border-white/5">
+                    <span class="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></span>
+                    <span class="text-red-400">Highly Detectable</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="space-y-20">
+            {categories.map(category => (
+                <section>
+                    <div class="flex items-center gap-4 mb-8 border-b border-white/5 pb-4">
+                        <div class="w-10 h-10 text-brand-primary bg-brand-primary/10 rounded-full p-2 flex items-center justify-center border border-brand-primary/20">
+                            <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" set:html={category.icon}></svg>
+                        </div>
+                        <h2 class="text-3xl font-heading font-bold text-white">{category.title}</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {category.features.map(feature => (
+                            <Card class="hover:bg-brand-surface-highlight transition-colors group">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-brand-dark/50 flex items-center justify-center text-brand-primary border border-white/5 group-hover:border-brand-primary/30 transition-colors mt-1 shrink-0">
+                                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" set:html={feature.icon}></svg>
+                                        </div>
+                                        <h3 class="text-lg font-bold text-white leading-tight pt-1.5">{feature.name}</h3>
+                                    </div>
+                                    <span class:list={[
+                                        "shrink-0 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded mt-1 border",
+                                        feature.risk === 'safe' ? "bg-green-500/10 text-green-400 border-green-500/20" :
+                                        feature.risk === 'medium' ? "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" :
+                                        "bg-red-500/10 text-red-400 border-red-500/20"
+                                    ]}>
+                                        {feature.risk === 'safe' ? 'Safe' : feature.risk === 'medium' ? 'Risk' : 'Unsafe'}
+                                    </span>
+                                </div>
+                                <p class="text-gray-400 text-sm pl-[44px]">{feature.description}</p>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+            ))}
+        </div>
+    </div>
+</Layout>

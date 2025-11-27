@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "bg-brand-surface border border-white/5 rounded-2xl p-6 relative overflow-hidden group transition-all duration-300 hover:border-brand-primary/30",
+    className,
+  ]}
+>
+  <!-- Circuit pattern background overlay -->
+  <div
+    class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDQwaDQwVjBIMHY0MHptMjAtMjBoMnYyaC0ydmgyaC0ydjJoLTJ2MmgyVjIwaDJ6IiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==')]"
+  >
+  </div>
+
+  <!-- Glow effect -->
+  <div
+    class="absolute -inset-px bg-linear-to-r from-brand-primary/0 via-brand-primary/10 to-brand-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+  >
+  </div>
+
+  <div class="relative z-10">
+    <slot />
+  </div>
+</div>

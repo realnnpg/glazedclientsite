@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette */
+  --color-brand-primary: #9B3CFF;
+  --color-brand-secondary: #5A0CE6;
+  --color-brand-accent: #FF31E4;
+  --color-brand-dark: #0C0B10;
+  --color-brand-surface: #16151D;
+  --color-brand-surface-highlight: #1F1E29;
+  
+  /* Text Colors */
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #A1A1AA;
+  --color-text-dim: #71717A;
+
+  /* Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Animations */
+  --animate-glow-pulse: glow-pulse 3s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(155, 60, 255, 0.2), 0 0 10px rgba(155, 60, 255, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(155, 60, 255, 0.4), 0 0 30px rgba(155, 60, 255, 0.2);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    background-color: var(--color-brand-dark);
+    color: var(--color-text-main);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(155, 60, 255, 0.5);
+  }
+  
+  .text-glow-strong {
+    text-shadow: 0 0 20px rgba(155, 60, 255, 0.8), 0 0 40px rgba(155, 60, 255, 0.4);
+  }
+
+  .bg-glass {
+    @apply bg-brand-surface/80 backdrop-blur-md border border-white/5;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-brand-primary/50 hover:shadow-[0_0_15px_rgba(155,60,255,0.2)];
+  }
+}

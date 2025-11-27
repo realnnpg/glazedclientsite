@@ -1,0 +1,285 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+
+const latestVersion = {
+    version: "v14",
+    minecraft: "1.21.8",
+    date: "3 weeks ago",
+    size: "607 KB",
+    downloadUrl:
+        "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.8-n-14.jar",
+    changelog: [
+        "Added Crystal Aura improvements",
+        "Fixed Auto Totem bug",
+        "New Base Finder algorithm",
+    ],
+};
+
+const dependencies = [
+    {
+        name: "Meteor Client",
+        url: "https://meteorclient.com",
+        required: true,
+        description: "The base client required to run Glazed.",
+    },
+    {
+        name: "Fabric API",
+        url: "https://modrinth.com/mod/fabric-api",
+        required: true,
+        description: "Essential library for Fabric mods.",
+    },
+    {
+        name: "Baritone",
+        url: "https://meteorclient.com",
+        required: false,
+        description: "Pathfinding bot (Optional but recommended).",
+    },
+];
+---
+
+<Layout title="Glazed - Downloads">
+    <div class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+                <span class="text-white">Download </span>
+                <span class="text-brand-primary text-glow">Glazed</span>
+            </h1>
+            <p class="text-gray-400 text-xl max-w-2xl mx-auto">
+                Get the latest version for DonutSMP. Always updated for the
+                newest patches.
+            </p>
+        </div>
+
+        <!-- Latest Release Card -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <Card class="bg-brand-surface-highlight/50 border-brand-primary/30">
+                <div
+                    class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+                >
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span
+                                class="bg-brand-primary text-white px-3 py-1 rounded-full text-sm font-bold font-mono"
+                                >LATEST</span
+                            >
+                            <h2 class="text-3xl font-bold text-white">
+                                Glazed {latestVersion.version}
+                            </h2>
+                        </div>
+                        <div
+                            class="flex flex-wrap gap-4 text-sm text-gray-400 font-mono mb-6"
+                        >
+                            <span class="flex items-center gap-2">
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                    ></path></svg
+                                >
+                                MC {latestVersion.minecraft}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    ></path></svg
+                                >
+                                {latestVersion.date}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                                    ></path></svg
+                                >
+                                {latestVersion.size}
+                            </span>
+                        </div>
+
+                        <div class="space-y-2 mb-6">
+                            <h3
+                                class="text-sm font-bold text-gray-300 uppercase tracking-wider"
+                            >
+                                Changelog:
+                            </h3>
+                            <ul
+                                class="list-disc list-inside text-gray-400 space-y-1 text-sm"
+                            >
+                                {
+                                    latestVersion.changelog.map((item) => (
+                                        <li>{item}</li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col w-full md:w-auto gap-4">
+                        <Button
+                            href={latestVersion.downloadUrl}
+                            size="lg"
+                            class="w-full justify-center shadow-[0_0_30px_rgba(155,60,255,0.3)]"
+                        >
+                            Download Jar
+                        </Button>
+                        <Button
+                            href="https://github.com/realnnpg/Glazed"
+                            variant="outline"
+                            size="sm"
+                            class="w-full justify-center"
+                        >
+                            View Source
+                        </Button>
+                    </div>
+                </div>
+            </Card>
+        </div>
+
+        <!-- Archive Link -->
+        <div class="text-center mb-20">
+            <p class="text-gray-400 mb-4">Looking for an older version?</p>
+            <Button href="/archive" variant="secondary" size="md">
+                View Version Archive
+            </Button>
+        </div>
+
+        <!-- Dependencies -->
+        <div class="mb-20">
+            <h2
+                class="text-2xl font-heading font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-8 h-1 bg-brand-primary rounded-full"></span>
+                Dependencies
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {
+                    dependencies.map((dep) => (
+                        <Card class="group">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold text-white">
+                                    {dep.name}
+                                </h3>
+                                {dep.required ? (
+                                    <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded border border-red-500/20">
+                                        REQUIRED
+                                    </span>
+                                ) : (
+                                    <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded border border-blue-500/20">
+                                        OPTIONAL
+                                    </span>
+                                )}
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6 h-10">
+                                {dep.description}
+                            </p>
+                            <a
+                                href={dep.url}
+                                target="_blank"
+                                class="text-brand-primary text-sm font-bold hover:text-brand-accent flex items-center gap-1 transition-colors"
+                            >
+                                Download External
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
+                            </a>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Installation Guide -->
+        <div class="max-w-3xl mx-auto">
+            <h2
+                class="text-2xl font-heading font-bold text-white mb-8 text-center"
+            >
+                Installation Guide
+            </h2>
+            <div
+                class="bg-brand-surface rounded-xl p-8 border border-white/5 relative overflow-hidden"
+            >
+                <!-- Steps -->
+                <ol class="relative border-l border-gray-700 ml-3 space-y-8">
+                    <li class="mb-10 ml-6">
+                        <span
+                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
+                            >1</span
+                        >
+                        <h3
+                            class="flex items-center mb-1 text-lg font-semibold text-white"
+                        >
+                            Install Fabric
+                        </h3>
+                        <p class="mb-4 text-base font-normal text-gray-400">
+                            Download and install the Fabric Loader for Minecraft
+                            1.21.8.
+                        </p>
+                    </li>
+                    <li class="mb-10 ml-6">
+                        <span
+                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
+                            >2</span
+                        >
+                        <h3
+                            class="flex items-center mb-1 text-lg font-semibold text-white"
+                        >
+                            Download Mods
+                        </h3>
+                        <p class="mb-4 text-base font-normal text-gray-400">
+                            Get Meteor Client, Fabric API, and Glazed.jar.
+                        </p>
+                    </li>
+                    <li class="ml-6">
+                        <span
+                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
+                            >3</span
+                        >
+                        <h3
+                            class="flex items-center mb-1 text-lg font-semibold text-white"
+                        >
+                            Drop into Folder
+                        </h3>
+                        <p class="mb-4 text-base font-normal text-gray-400">
+                            Move all .jar files into your <code
+                                class="bg-black px-2 py-1 rounded text-gray-300 font-mono text-sm"
+                                >.minecraft/mods</code
+                            > folder.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</Layout>

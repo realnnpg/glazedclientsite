@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+
+interface Release {
+  version: string;
+  date: string;
+  changelog?: string[];
+  assets: {
+    name: string;
+    url: string;
+    size: string;
+    sha256: string;
+  }[];
+}
+
+const releases: Release[] = [
+  {
+    version: "v14",
+    date: "3 weeks ago",
+    assets: [
+      { name: "glazed-1.21.1-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.1-n-14.jar", size: "604 KB", sha256: "f9200b7d5da14747b552e44b4c4ac18528014e35ca4ef11858a4ebfb40945c71" },
+      { name: "glazed-1.21.4-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.4-n-14.jar", size: "604 KB", sha256: "857c441d13e45abc5807b0480c80d5c0243aedf8eab835278dfe2bfc03571292" },
+      { name: "glazed-1.21.5-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.5-n-14.jar", size: "606 KB", sha256: "87309a8f54d0a397a06f110797ef492c1ef58f6c89231d6a6ef9bc83b27701b6" },
+      { name: "glazed-1.21.8-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.8-n-14.jar", size: "607 KB", sha256: "3d3c47bc418fa67184cfd4fc806a213aae855f4edf0f9e9c15d970d18bb55203" }
+    ]
+  },
+  {
+    version: "v1.21.5-13",
+    date: "Sep 14",
+    changelog: [
+      "AH Sniper — Multi-item sniping, faster, now with enchantment support",
+      "Spawner Protect Fix — Discord ID doesnt spawn on General Category",
+      "Beta Spawner Order — Early testing release",
+      "TreeFarmer Update — Smarter inventory auto-drop, improved order refill, faster bonemeal",
+      "Auto Trident — Fully automated trident usage",
+      "EndBaseFinder Update — Enderman protection instead of forced lookdown",
+      "RTP Update — Bug fixes, self-ping, Nether & End support",
+      "Legit Crystal Macro — Auto places obsidian when right clicking",
+      "Legit Anchor Macro — Switches back to anchor option",
+      "Hover Totem — Equips a totem when hovered over",
+      "ItemSwap — Can be used for Shield breaker, mace swap, sword hit, etc.",
+      "Better ChunkFinder — Improved detection",
+      "RTPer — Random teleport in End & Nether",
+      "Crate Buyer Fix — Now can buy shovel",
+      "Player Detection PanicPay — u understand",
+      "Region Map — Added region-based mapping",
+      "Old Crystal Macro — Re-added by request",
+      "Spawner Dropper Update — Bone dropper, fixed bugs due to Donut spawner changes",
+      "Legit Crystal Macro — Stop on kill",
+      "EndBaseFinder Update — Removed Enderman Protection because it is detectable",
+      "ChunkFinder v3 — Improved detection",
+      "Legit Anchor Macro — Stop on kill",
+      "Changed Name to HoleTunnelStairsESP — To make it compatible with TrouserStreaks",
+      "Legit Autototem — prob detectable(will fix)"
+    ],
+    assets: [
+      { name: "glazed-1.21.5-n-13.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.5-13/glazed-1.21.5-n-13.jar", size: "529 KB", sha256: "b6c1acfbefdbaeb1139c0c2c5c842a522a858e2ac237768ab7b2d1d0c8671bc8" }
+    ]
+  },
+  {
+    version: "v1.21.4-13",
+    date: "Sep 13",
+    changelog: [
+      "Same as v1.21.5-13 but for 1.21.4"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-n-13.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-13/glazed-1.21.4-n-13.jar", size: "529 KB", sha256: "2daaf58afb4c3b4dc1a65e140ae7defcee974683f6f77704b09cf691117e525d" }
+    ]
+  },
+  {
+    version: "v1.21.5-12",
+    date: "Aug 24",
+    changelog: [
+      "Undetected Tree Farmer — Reworked & fully bypasses detection",
+      "Spawner Protect Fix — Now doesnt get triggered on Server Restarts",
+      "RTP for Biomes — Teleport directly to biome types",
+      "Legit Anchor Macro — Safer & more reliable usage",
+      "Faster Crystal Macro — Optimized for higher speed",
+      "Block Notifier — Get alerts for specific block detections",
+      "End & Nether RTP — Explore both dimensions with random teleports",
+      "Auto Firework — Recoded better AutoFirework",
+      "Advanced StashFinder — Disconnects instantly when a base is found",
+      "AutoInv Totem — Auto-opens inventory to insert totems",
+      "HoleTunnelStairsESP — Detects 3x1 tunnels(Amethyst pick)",
+      "Spawner Notifier — Alerts when spawners are detected",
+      "EndBaseFinder Fix — Doesnt kick you anymore",
+      "Chunk Finder — Detects sus chunks",
+      "Removed FastBreak — Removed FastBreak since it got patched"
+    ],
+    assets: [
+      { name: "glazed-1.21.5-n-12.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.5-12/glazed-1.21.5-n-12.jar", size: "499 KB", sha256: "9f088c94b3cb723dd6826940570121538af20da5c3291b6af46fc5d0f401b0f2" }
+    ]
+  },
+  {
+    version: "v1.21.4-12",
+    date: "Aug 24",
+    changelog: [
+       "Same as v1.21.5-12 but for 1.21.4"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-n-12.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-12/glazed-1.21.4-n-12.jar", size: "499 KB", sha256: "929da6ff23aa87cb564a3b06f56615f8a11813953ce616f09ab773c233767362" }
+    ]
+  },
+  {
+    version: "v1.21.5-11",
+    date: "Aug 18",
+    changelog: [
+      "Undetected Tunneler — Mine tunnels without detection",
+      "PvP Category — New dedicated PvP module section",
+      "AutoElytraFly — Automatic Elytra flying with speed & safety tweaks",
+      "Player Detection Whitelist — Ignore trusted players in checks",
+      "Player Detection Auto-Close — Closes modules when players are detected",
+      "Fixed Covered Hole ESP — No more crashes",
+      "Tunnel & Stairs ESP Fix — Reduced lag",
+      "ShopBuyer — Auto-purchases from shop signs",
+      "EndRTP Base Finder — Random teleports in the End to locate bases",
+      "Better ShulkerOrder — Improved auto-ordering for trades",
+      "ShulkerShellOrder — Automatically orders shulker shells",
+      "Emergency Seller — Instantly sells valuables in emergencies",
+      "Better OrderSnipe — Faster & more reliable sniping",
+      "Auto Tree Farmer — Fully automated spruce farming"
+    ],
+    assets: [
+      { name: "glazed-1.21.5-n-11.1.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.5-11/glazed-1.21.5-n-11.1.jar", size: "370 KB", sha256: "72b3514812e2e6428ae417b2d4046eca091eefacad49d009db102c05dfced42e" }
+    ]
+  },
+  {
+    version: "v1.21.4-11",
+    date: "Aug 18",
+    changelog: [
+      "Same as v1.21.5-11 but for 1.21.4"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-n-11.1.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-11/glazed-1.21.4-n-11.1.jar", size: "370 KB", sha256: "9b3412d5ac6cdf54bc0717497f271fba7f8bc6223e8ec8aec3f8842fe5456a48" }
+    ]
+  },
+  {
+    version: "v1.21.5-10",
+    date: "Aug 9",
+    assets: [
+      { name: "glazed-1.21.5-n-10.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.5-10/glazed-1.21.5-n-10.jar", size: "281 KB", sha256: "d6cd2b0433b2183a21f3cbad6cd88d0c568771e68bb0ef4f4d6ef03525a5b932" }
+    ]
+  },
+  {
+    version: "v1.21.4-10",
+    date: "Aug 9",
+    assets: [
+      { name: "glazed-1.21.4-n-10.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-10/glazed-1.21.4-n-10.jar", size: "281 KB", sha256: "539f31b860bc7463c802070e4d13a98a914c02350204fea15dadf93c2a61fd4d" }
+    ]
+  },
+  {
+    version: "v1.21.5-8",
+    date: "Jul 18",
+    assets: [
+      { name: "glazed-1.21.5-8.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.5-8/glazed-1.21.5-8.jar", size: "140 KB", sha256: "4fd491529d6845806285278c39b983519547b17f59e1bfa62abba5d934f22a15" }
+    ]
+  },
+  {
+    version: "v1.21.4-8",
+    date: "Jul 18",
+    changelog: [
+      "Version check added to warn you if you are using an older version",
+      "Webhook self-ping. You can now ping yourself in webhooks",
+      "Fixed autosell bug (menu overflow with extra items)",
+      "Spawner Critical is now fully working",
+      "AutoOrder",
+      "Extra ESP: Rotated deepslate, Kelp, Dripstone",
+      "Player Detection: Stops Baritone when a player is detected",
+      "HideScoreboard",
+      "AutoInvTotem(doesn't ban you automatically)",
+      "CrystalMachro(doesn't ban you automatically)"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-8.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-8/glazed-1.21.4-8.jar", size: "140 KB", sha256: "dfca3180f4ad134441a1ad309a55dbe05a3076b9001842f8a61082ce88461d56" }
+    ]
+  },
+  {
+    version: "v1.21.4-7",
+    date: "Jul 8",
+    changelog: [
+      "SpawnerDropper: Automatically drops items from spawners",
+      "ExtraESP: Added ESP for kelp and rotated deepslate",
+      "AutoShulkerOrder: Automatically buys and orders shulkers",
+      "SpawnerProtect: Now faster + auto-disable AutoReconnect setting",
+      "TunnelMiner: Renamed from RTP Tunnel Miner",
+      "AutoSell: Fixed and now working as intended"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-7.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-7/glazed-1.21.4-7.jar", size: "109 KB", sha256: "d6614a0fc296abee10aafdc4c385e89fc355dc3ea584f008c3cb7ed5e51fcdff" }
+    ]
+  },
+  {
+    version: "v1.21.4-6",
+    date: "Jun 30",
+    changelog: [
+      "Fixed the spam kick bug in TunnelMiner and RTPBaseFinder",
+      "RTP on Totem Pop",
+      "RTP on Low Health",
+      "PlayerDetection toggle option",
+      "Added AutoSell",
+      "Added ShulkerDropper"
+    ],
+    assets: [
+      { name: "glazed-1.21.4-6.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-6/glazed-1.21.4-6.jar", size: "95.7 KB", sha256: "aa18d2f40d08394a5bc0f19c6cf6d9b7f820e88be764fe5cfdd64fb09178ecc5" }
+    ]
+  },
+  {
+    version: "v1.3",
+    date: "Jun 20",
+    changelog: [
+        "Made baritone look more legit",
+        "SPAWNER PROTECT DOESNT WORK. ILL FIX"
+    ],
+    assets: [
+       { name: "glazed-v1.3.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.3/glazed-v1.3.jar", size: "88.4 KB", sha256: "23b4677797ef2227b9abe2a0e28aecaa3a6dc86406645a716fbd962b4f12d1fd" }
+    ]
+  },
+  {
+    version: "v1.2",
+    date: "Jun 19",
+    changelog: [
+        "New module -> RTPTunnelMiner"
+    ],
+    assets: [
+       { name: "glazed-v1.2.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.2/glazed-v1.2.jar", size: "88.1 KB", sha256: "a13baa9dedb0d2733fbe15730a6c41a12cf921ca4ee9f1fac7b523de69d17fdd" }
+    ]
+  },
+  {
+    version: "v1.1",
+    date: "Jun 19",
+    changelog: ["Bug Fixes"],
+    assets: [
+       { name: "glazed-v1.1.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.1/glazed-v1.1.jar", size: "75.7 KB", sha256: "93f2020e95526f467c53be921e4f3fada3fa1a25bbaf65f3be4a432439fd2f71" }
+    ]
+  },
+  {
+    version: "v1.0",
+    date: "Jun 18",
+    changelog: ["First official version of Glazed."],
+    assets: [
+       { name: "glazed-v1.0.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v1.0/glazed-v1.0.jar", size: "75.8 KB", sha256: "9686f392e6a4854571877e8c6379b641bc2b38aa72c3eb0aa0fea4ee7d5988be" }
+    ]
+  }
+];
+---
+
+<Layout title="Glazed - Version Archive">
+  <div class="pt-32 pb-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+        <span class="text-white">Version </span>
+        <span class="text-brand-primary text-glow">Archive</span>
+      </h1>
+      <p class="text-gray-400 text-xl max-w-2xl mx-auto">
+        Historical versions of Glazed Client. Naming conventions may vary.
+      </p>
+    </div>
+
+    <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-brand-primary/50 before:to-transparent">
+      {releases.map((release) => (
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+            <!-- Timeline Dot -->
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-primary bg-brand-dark shadow-[0_0_10px_rgba(155,60,255,0.5)] shrink-0 md:order-1 absolute left-0 md:left-1/2 translate-x-0 md:-translate-x-1/2 z-10">
+                <div class="w-3 h-3 bg-brand-primary rounded-full"></div>
+            </div>
+
+            <!-- Card -->
+            <Card class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] ml-auto md:ml-0 p-6 hover:border-brand-primary/50 transition-all">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                         <h2 class="text-2xl font-bold text-white mb-1">{release.version}</h2>
+                         <span class="text-sm font-mono text-gray-500">{release.date}</span>
+                    </div>
+                </div>
+
+                {release.changelog && (
+                    <div class="mb-6">
+                        <h3 class="text-sm font-bold text-gray-300 uppercase mb-2">Changes:</h3>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                            {release.changelog.map(line => <li>{line}</li>)}
+                        </ul>
+                    </div>
+                )}
+
+                <div class="space-y-3">
+                    {release.assets.map(asset => (
+                        <div class="bg-black/30 rounded p-3 border border-white/5 flex flex-col gap-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-brand-primary font-mono text-sm truncate">{asset.name}</span>
+                                <span class="text-gray-500 text-xs shrink-0">{asset.size}</span>
+                            </div>
+                             <div class="flex items-center justify-between gap-3">
+                                <code class="text-[10px] text-gray-600 font-mono truncate max-w-[200px] select-all" title="Click to copy SHA256">{asset.sha256}</code>
+                                <Button href={asset.url} size="sm" class="shrink-0 text-xs px-3 py-1 h-7">Download</Button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

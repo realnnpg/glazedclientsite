@@ -1,0 +1,231 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="Glazed - The Ultimate DonutSMP Client">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Ambient Background Glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-primary/20 rounded-full blur-[120px] pointer-events-none"
+        >
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+        >
+            <!-- Animated Donut Placeholder -->
+            <div class="mx-auto mb-12 w-96 h-96 relative">
+                <div
+                    class="absolute inset-0 bg-brand-primary/30 blur-2xl rounded-full"
+                >
+                </div>
+
+                <div class="w-full h-full relative animate-spin-slow">
+                    <Image
+                        src="/logo.png"
+                        alt="Glazed Donut Logo"
+                        width={384}
+                        height={384}
+                        class="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(155,60,255,0.6)]"
+                    />
+                </div>
+            </div>
+
+            <h1
+                class="text-5xl md:text-7xl font-heading font-bold tracking-tight mb-6"
+            >
+                <span
+                    class="bg-clip-text text-transparent bg-linear-to-r from-white via-brand-primary to-brand-accent text-glow"
+                >
+                    GLAZED CLIENT
+                </span>
+            </h1>
+
+            <p
+                class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+            >
+                Dominate DonutSMP with the most advanced, feature-rich addon
+                ever created.
+                <span class="text-brand-primary font-semibold"
+                    >PvP, Automation, Utility.</span
+                >
+            </p>
+
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+                <Button href="/downloads" size="lg" class="w-full sm:w-auto">
+                    Download Now
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 ml-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </Button>
+                <Button
+                    href="https://discord.gg/glazedclient"
+                    variant="secondary"
+                    size="lg"
+                    class="w-full sm:w-auto"
+                >
+                    Join Discord
+                </Button>
+            </div>
+
+            <div
+                class="mt-12 flex items-center justify-center gap-8 text-sm text-gray-500 font-mono"
+            >
+                <div class="flex items-center gap-2">
+                    <span
+                        class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
+                    ></span>
+                    Latest: v14
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"></path></svg
+                    >
+                    MC 1.21.8
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="py-24 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+                    Why Choose <span class="text-brand-primary">Glazed</span>?
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Built specifically for the unique mechanics of DonutSMP. We
+                    don't just port features; we optimize them.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card>
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-primary/10 flex items-center justify-center mb-6 text-brand-primary"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">
+                        100% Free & Open Source
+                    </h3>
+                    <p class="text-gray-400">
+                        No paid gatekeeping or hidden fees. Glazed is fully
+                        open-source, allowing anyone to verify the code and
+                        contribute.
+                    </p>
+                </Card>
+
+                <Card>
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-accent/10 flex items-center justify-center mb-6 text-brand-accent"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">
+                        Extensive Module Library
+                    </h3>
+                    <p class="text-gray-400">
+                        Packed with over 50+ powerful modules covering PvP,
+                        Automation, and Utility to enhance every aspect of your
+                        gameplay.
+                    </p>
+                </Card>
+
+                <Card>
+                    <div
+                        class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-6 text-purple-400"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">
+                        Optimized for DonutSMP
+                    </h3>
+                    <p class="text-gray-400">
+                        Specifically tuned for DonutSMP's unique mechanics and
+                        economy, giving you the edge where it matters most.
+                    </p>
+                </Card>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-linear-to-b from-brand-dark to-brand-surface"
+        >
+        </div>
+        <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold mb-8">
+                Ready to Upgrade Your Gameplay?
+            </h2>
+            <div class="flex flex-col items-center gap-6">
+                <Button href="/downloads" size="lg" class="text-lg px-10"
+                    >Get Glazed Client</Button
+                >
+                <p class="text-gray-500 text-sm">
+                    Requires Meteor Client + Fabric API
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>
