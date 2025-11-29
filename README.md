@@ -89,7 +89,7 @@ The output will be in the `dist/` directory.
 **Development Team:**
 - **nnpj** - Owner, Client Developer
 - **doshibadev** - Web Developer, Client Developer
-- **dankor** - Web Developer
+- **dankor** - Client Developer, Web Developer
 - **Potato** - Addon Developer
 - **AR3 | Busy** - Client Developer
 - **femboy** - Client Developer
