@@ -153,6 +153,21 @@ const categories = [
                     <span class="text-red-400">Highly Detectable</span>
                 </div>
             </div>
+
+            <!-- Search -->
+            <div class="max-w-md mx-auto mt-8 relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="block w-full pl-10 pr-3 py-3 border border-white/10 rounded-xl leading-5 bg-brand-surface text-gray-300 placeholder-gray-500 focus:outline-none focus:bg-brand-surface-highlight focus:border-brand-primary/50 focus:ring-1 focus:ring-brand-primary/50 sm:text-sm transition-colors"
+                    placeholder="Search modules..."
+                />
+            </div>
         </div>
 
         <!-- Categories -->
@@ -168,7 +183,7 @@ const categories = [
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {category.features.map(feature => (
-                            <Card class="hover:bg-brand-surface-highlight transition-colors group">
+                            <Card class="feature-card hover:bg-brand-surface-highlight transition-colors group">
                                 <div class="flex justify-between items-start mb-3">
                                     <div class="flex items-start gap-3">
                                         <div class="w-8 h-8 rounded-lg bg-brand-dark/50 flex items-center justify-center text-brand-primary border border-white/5 group-hover:border-brand-primary/30 transition-colors mt-1 shrink-0">
@@ -194,3 +209,40 @@ const categories = [
         </div>
     </div>
 </Layout>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const sections = document.querySelectorAll('section');
+
+    searchInput?.addEventListener('input', (e) => {
+        // @ts-ignore
+        const searchTerm = e.target.value.toLowerCase();
+
+        sections.forEach(section => {
+            const features = section.querySelectorAll('.feature-card');
+            let hasVisibleFeatures = false;
+
+            features.forEach(feature => {
+                const nameElement = feature.querySelector('h3');
+                if (nameElement) {
+                    const name = nameElement.textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm)) {
+                        // @ts-ignore
+                        feature.style.display = '';
+                        hasVisibleFeatures = true;
+                    } else {
+                        // @ts-ignore
+                        feature.style.display = 'none';
+                    }
+                }
+            });
+
+            if (hasVisibleFeatures) {
+                section.style.display = '';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    });
+</script>
