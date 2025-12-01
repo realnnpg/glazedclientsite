@@ -3,6 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
+const latestReleaseV15 = {
+    version: "v15",
+    date: "Just now",
+    assets: [
+        { 
+            name: "glazed-1.21.4-n-15.jar", 
+            url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-15/glazed-1.21.4-n-15.jar", 
+            size: "614 KB", 
+            sha256: "351738a76844d9bf65fd5bc29b5dda1b07007c64473f3510beeb685692de8cc1" 
+        },
+    ],
+    changelog: {
+        updated: [],
+        new: []
+    }
+};
+
 const latestRelease = {
     version: "v14",
     date: "3 weeks ago",
@@ -99,14 +116,53 @@ const dependencies = [
             </p>
         </div>
 
-        <!-- Latest Release Card -->
+        <!-- NEW v15 CARD ADDED ABOVE v14 -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <Card class="bg-brand-surface-highlight/50 border-brand-primary/30">
+                <div class="flex flex-col gap-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-brand-primary text-white px-3 py-1 rounded-full text-sm font-bold font-mono">LATEST</span>
+                            <h2 class="text-3xl font-bold text-white">
+                                Glazed {latestReleaseV15.version}
+                            </h2>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {latestReleaseV15.date}
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-4 border-t border-white/10">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Downloads</h3>
+                        {latestReleaseV15.assets.map(asset => (
+                            <div class="bg-black/30 rounded-lg p-4 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 hover:border-brand-primary/30 transition-colors group">
+                                <div class="flex flex-col gap-1 w-full md:w-auto">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-brand-primary font-mono font-bold">{asset.name}</span>
+                                        <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-300">{asset.size}</span>
+                                    </div>
+                                    <code class="text-[10px] text-gray-600 font-mono select-all" title="SHA256 Checksum">{asset.sha256}</code>
+                                </div>
+                                <Button href={asset.url} size="sm" class="w-full md:w-auto whitespace-nowrap group-hover:shadow-[0_0_15px_rgba(155,60,255,0.3)]">
+                                    Download
+                                </Button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Card>
+        </div>
+
+        <!-- ORIGINAL v14 CARD (unchanged) -->
         <div class="max-w-4xl mx-auto mb-12">
             <Card class="bg-brand-surface-highlight/50 border-brand-primary/30">
                 <div class="flex flex-col gap-8">
                     <!-- Header -->
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div class="flex items-center gap-4">
-                            <span class="bg-brand-primary text-white px-3 py-1 rounded-full text-sm font-bold font-mono">LATEST</span>
                             <h2 class="text-3xl font-bold text-white">
                                 Glazed {latestRelease.version}
                             </h2>
@@ -137,7 +193,7 @@ const dependencies = [
                             </div>
                         ))}
                     </div>
-                    
+
                     <div class="flex justify-end">
                          <Button href="https://github.com/realnnpg/Glazed" variant="ghost" size="sm" class="text-xs">
                             View Source Code on GitHub →
@@ -210,59 +266,30 @@ const dependencies = [
 
         <!-- Installation Guide -->
         <div class="max-w-3xl mx-auto">
-            <h2
-                class="text-2xl font-heading font-bold text-white mb-8 text-center"
-            >
+            <h2 class="text-2xl font-heading font-bold text-white mb-8 text-center">
                 Installation Guide
             </h2>
-            <div
-                class="bg-brand-surface rounded-xl p-8 border border-white/5 relative overflow-hidden"
-            >
-                <!-- Steps -->
+            <div class="bg-brand-surface rounded-xl p-8 border border-white/5 relative overflow-hidden">
                 <ol class="relative border-l border-gray-700 ml-3 space-y-8">
                     <li class="mb-10 ml-6">
-                        <span
-                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
-                            >1</span
-                        >
-                        <h3
-                            class="flex items-center mb-1 text-lg font-semibold text-white"
-                        >
-                            Install Fabric
-                        </h3>
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold">1</span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Install Fabric</h3>
                         <p class="mb-4 text-base font-normal text-gray-400">
                             Download and install the Fabric Loader for your Minecraft version (1.21.x).
                         </p>
                     </li>
                     <li class="mb-10 ml-6">
-                        <span
-                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
-                            >2</span
-                        >
-                        <h3
-                            class="flex items-center mb-1 text-lg font-semibold text-white"
-                        >
-                            Download Mods
-                        </h3>
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold">2</span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Download Mods</h3>
                         <p class="mb-4 text-base font-normal text-gray-400">
                             Get Meteor Client, Fabric API, and the correct Glazed.jar for your version.
                         </p>
                     </li>
                     <li class="ml-6">
-                        <span
-                            class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold"
-                            >3</span
-                        >
-                        <h3
-                            class="flex items-center mb-1 text-lg font-semibold text-white"
-                        >
-                            Drop into Folder
-                        </h3>
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-brand-surface-highlight rounded-full -left-4 ring-4 ring-brand-dark border border-brand-primary text-brand-primary font-bold">3</span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Drop into Folder</h3>
                         <p class="mb-4 text-base font-normal text-gray-400">
-                            Move all .jar files into your <code
-                                class="bg-black px-2 py-1 rounded text-gray-300 font-mono text-sm"
-                                >.minecraft/mods</code
-                            > folder.
+                            Move all .jar files into your <code class="bg-black px-2 py-1 rounded text-gray-300 font-mono text-sm">.minecraft/mods</code> folder.
                         </p>
                     </li>
                 </ol>
