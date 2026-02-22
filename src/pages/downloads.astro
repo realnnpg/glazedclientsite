@@ -83,21 +83,48 @@ const latestRelease = {
 const dependencies = [
     {
         name: "Meteor Client",
+        slug: "meteor",
         url: "https://meteorclient.com",
         required: true,
         description: "The base client required to run Glazed.",
+        versions: [
+            { mc: "1.21.1", file: "meteor-client-1.21.1-0.5.8.jar" },
+            { mc: "1.21.4", file: "meteor-client-1.21.4-42.jar" },
+            { mc: "1.21.5", file: "meteor-client-1.21.5-54.jar" },
+            { mc: "1.21.8", file: "meteor-client-1.21.8-69.jar" },
+            { mc: "1.21.10", file: "meteor-client-1.21.10-54.jar" },
+            { mc: "1.21.11", file: "meteor-client-1.21.11-63.jar" },
+        ],
     },
     {
         name: "Fabric API",
+        slug: "fabric-api",
         url: "https://modrinth.com/mod/fabric-api",
         required: true,
         description: "Essential library for Fabric mods.",
+        versions: [
+            { mc: "1.21.1", file: "fabric-api-0.116.8+1.21.1.jar" },
+            { mc: "1.21.4", file: "fabric-api-0.119.4+1.21.4.jar" },
+            { mc: "1.21.5", file: "fabric-api-0.128.2+1.21.5.jar" },
+            { mc: "1.21.8", file: "fabric-api-0.136.1+1.21.8.jar" },
+            { mc: "1.21.10", file: "fabric-api-0.138.4+1.21.10.jar" },
+            { mc: "1.21.11", file: "fabric-api-0.141.3+1.21.11.jar" },
+        ],
     },
     {
         name: "Baritone",
+        slug: "baritone",
         url: "https://github.com/cabaletta/baritone",
         required: false,
         description: "Pathfinding bot (Optional but recommended).",
+        versions: [
+            { mc: "1.21.1", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.1.jar" },
+            { mc: "1.21.4", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.4.jar" },
+            { mc: "1.21.5", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.5.jar" },
+            { mc: "1.21.8", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.8.jar" },
+            { mc: "1.21.10", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.10.jar" },
+            { mc: "1.21.11", file: "baritone-meteor-1.21.11.jar" },
+        ],
     },
 ];
 ---
@@ -237,26 +264,59 @@ const dependencies = [
                             <p class="text-gray-400 text-sm mb-6 h-10">
                                 {dep.description}
                             </p>
-                            <a
-                                href={dep.url}
-                                target="_blank"
-                                class="text-brand-primary text-sm font-bold hover:text-brand-accent flex items-center gap-1 transition-colors"
-                            >
-                                Download External
-                                <svg
-                                    class="w-4 h-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
+                            <div class="flex flex-col gap-3">
+                                <a
+                                    href={dep.url}
+                                    target="_blank"
+                                    class="text-brand-primary text-sm font-bold hover:text-brand-accent flex items-center gap-1 transition-colors"
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                    />
-                                </svg>
-                            </a>
+                                    Download External
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        />
+                                    </svg>
+                                </a>
+                                <div class="flex items-center gap-2">
+                                    <select
+                                        data-dep-select={dep.slug}
+                                        class="bg-black/40 border border-white/10 rounded px-2 py-1 text-sm text-gray-300 font-mono focus:border-brand-primary/50 focus:outline-none transition-colors cursor-pointer flex-1"
+                                    >
+                                        {dep.versions.map((v) => (
+                                            <option value={`/deps/${dep.slug}/${v.file}`}>{v.mc}</option>
+                                        ))}
+                                    </select>
+                                    <a
+                                        data-dep-link={dep.slug}
+                                        href={`/deps/${dep.slug}/${dep.versions[0].file}`}
+                                        download
+                                        class="text-gray-400 text-sm font-bold hover:text-white flex items-center gap-1 transition-colors whitespace-nowrap"
+                                    >
+                                        Internal
+                                        <svg
+                                            class="w-4 h-4"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                         </Card>
                     ))
                 }
@@ -295,4 +355,15 @@ const dependencies = [
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('[data-dep-select]').forEach((select) => {
+            const slug = select.getAttribute('data-dep-select');
+            const link = document.querySelector(`[data-dep-link="${slug}"]`);
+            if (!link) return;
+            select.addEventListener('change', () => {
+                link.setAttribute('href', select.value);
+            });
+        });
+    </script>
 </Layout>
