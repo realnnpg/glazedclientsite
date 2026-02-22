@@ -3,81 +3,29 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
-const latestReleaseV15 = {
-    version: "v15",
+const latestRelease = {
+    version: "v16",
     date: "Just now",
     assets: [
-        { 
-            name: "glazed-1.21.4-n-15.jar", 
-            url: "https://github.com/realnnpg/Glazed/releases/download/v1.21.4-15/glazed-1.21.4-n-15.jar", 
-            size: "612 KB", 
-            sha256: "762f2f1af0f9eb31d33c3fc2d33626e6f0373bc4a0c097df413ec5f43259c5a6" 
+        {
+            name: "glazed-1.21.4-n-16.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v16/glazed-1.21.4-n-16.jar",
+            size: "",
+            sha256: ""
+        },
+        {
+            name: "glazed-1.21.10-n-16.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v16/glazed-1.21.10-n-16.jar",
+            size: "",
+            sha256: ""
+        },
+        {
+            name: "glazed-1.21.11-n-16.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v16/glazed-1.21.11-n-16.jar",
+            size: "",
+            sha256: ""
         },
     ],
-    changelog: {
-        updated: [],
-        new: []
-    }
-};
-
-const latestRelease = {
-    version: "v14",
-    date: "3 weeks ago",
-    assets: [
-        { name: "glazed-1.21.1-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.1-n-14.jar", size: "604 KB", sha256: "f9200b7d5da14747b552e44b4c4ac18528014e35ca4ef11858a4ebfb40945c71" },
-        { name: "glazed-1.21.5-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.5-n-14.jar", size: "606 KB", sha256: "87309a8f54d0a397a06f110797ef492c1ef58f6c89231d6a6ef9bc83b27701b6" },
-        { name: "glazed-1.21.8-n-14.jar", url: "https://github.com/realnnpg/Glazed/releases/download/v14/glazed-1.21.8-n-14.jar", size: "607 KB", sha256: "3d3c47bc418fa67184cfd4fc806a213aae855f4edf0f9e9c15d970d18bb55203" }
-    ],
-    changelog: {
-        updated: [
-            "ChunkFinder — Fixed",
-            "CrystalMacro (Obi Place) — Ud",
-            "SpawnerProtect — Fixed",
-            "PearlThrow — Ud"
-        ],
-        new: [
-            "UIHelper",
-            "BedrockVoidESP",
-            "ShieldBreaker",
-            "AutoXP",
-            "NoBlockInteract",
-            "BeehiveESP",
-            "FastExp",
-            "WindPearlMacro",
-            "QuickShieldBreaker",
-            "UDTriggerBot",
-            "SwordPlaceObsidian",
-            "ChestAndShulkerStealer",
-            "AutoRightClick",
-            "DoubleAnchorMacro",
-            "StunMace",
-            "HoldHotbarTotem",
-            "SweetBerryESP",
-            "ElytraFirework",
-            "PistonESP",
-            "TpaAllMacro",
-            "RTPNetherBaseFinder",
-            "HomeReset",
-            "KeyPearl",
-            "DrownedTridentESP",
-            "TapResetMacro",
-            "SixtySevenMacro",
-            "JumpResetMacro",
-            "AimAssist",
-            "SkeletonESP",
-            "RainNoti",
-            "PearlBoost",
-            "AutoPearlChain",
-            "AICommand",
-            "AutoBlazeRodOrders",
-            "SwordAxePlaceCobweb",
-            "BlazeRodDropper",
-            "BreachSwap",
-            "FreecamMining",
-            "ScoreboardModule",
-            "And more…"
-        ]
-    }
 };
 
 const dependencies = [
@@ -142,53 +90,12 @@ const dependencies = [
             </p>
         </div>
 
-        <!-- NEW v15 CARD ADDED ABOVE v14 -->
         <div class="max-w-4xl mx-auto mb-12">
             <Card class="bg-brand-surface-highlight/50 border-brand-primary/30">
                 <div class="flex flex-col gap-8">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                         <div class="flex items-center gap-4">
                             <span class="bg-brand-primary text-white px-3 py-1 rounded-full text-sm font-bold font-mono">LATEST</span>
-                            <h2 class="text-3xl font-bold text-white">
-                                Glazed {latestReleaseV15.version}
-                            </h2>
-                        </div>
-                        <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            {latestReleaseV15.date}
-                        </div>
-                    </div>
-
-                    <div class="space-y-3 pt-4 border-t border-white/10">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Downloads</h3>
-                        {latestReleaseV15.assets.map(asset => (
-                            <div class="bg-black/30 rounded-lg p-4 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 hover:border-brand-primary/30 transition-colors group">
-                                <div class="flex flex-col gap-1 w-full md:w-auto">
-                                    <div class="flex items-center gap-3">
-                                        <span class="text-brand-primary font-mono font-bold">{asset.name}</span>
-                                        <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-300">{asset.size}</span>
-                                    </div>
-                                    <code class="text-[10px] text-gray-600 font-mono select-all" title="SHA256 Checksum">{asset.sha256}</code>
-                                </div>
-                                <Button href={asset.url} size="sm" class="w-full md:w-auto whitespace-nowrap group-hover:shadow-[0_0_15px_rgba(155,60,255,0.3)]">
-                                    Download
-                                </Button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </Card>
-        </div>
-
-        <!-- ORIGINAL v14 CARD (unchanged) -->
-        <div class="max-w-4xl mx-auto mb-12">
-            <Card class="bg-brand-surface-highlight/50 border-brand-primary/30">
-                <div class="flex flex-col gap-8">
-                    <!-- Header -->
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div class="flex items-center gap-4">
                             <h2 class="text-3xl font-bold text-white">
                                 Glazed {latestRelease.version}
                             </h2>
@@ -201,7 +108,6 @@ const dependencies = [
                         </div>
                     </div>
 
-                    <!-- Assets List -->
                     <div class="space-y-3 pt-4 border-t border-white/10">
                         <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Downloads</h3>
                         {latestRelease.assets.map(asset => (
@@ -209,9 +115,9 @@ const dependencies = [
                                 <div class="flex flex-col gap-1 w-full md:w-auto">
                                     <div class="flex items-center gap-3">
                                         <span class="text-brand-primary font-mono font-bold">{asset.name}</span>
-                                        <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-300">{asset.size}</span>
+                                        {asset.size && <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-300">{asset.size}</span>}
                                     </div>
-                                    <code class="text-[10px] text-gray-600 font-mono select-all" title="SHA256 Checksum">{asset.sha256}</code>
+                                    {asset.sha256 && <code class="text-[10px] text-gray-600 font-mono select-all" title="SHA256 Checksum">{asset.sha256}</code>}
                                 </div>
                                 <Button href={asset.url} size="sm" class="w-full md:w-auto whitespace-nowrap group-hover:shadow-[0_0_15px_rgba(155,60,255,0.3)]">
                                     Download
