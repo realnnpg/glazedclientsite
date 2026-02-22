@@ -9,23 +9,51 @@ import Layout from '../layouts/Layout.astro';
                 <span class="text-white">Privacy </span>
                 <span class="text-brand-primary text-glow">Policy</span>
             </h1>
+            <p class="text-gray-400 text-sm font-mono">Last updated: February 2026</p>
         </div>
 
-        <div class="prose prose-invert max-w-none bg-brand-surface border border-white/5 rounded-xl p-8 md:p-12">
-            <h3>1. Data Collection</h3>
-            <p>Glazed Client ("the Software") prioritizes user privacy. We do not collect, store, or transmit personal data, usage statistics, or telemetry to external servers.</p>
+        <div class="prose prose-invert max-w-none bg-brand-surface border border-white/5 rounded-xl p-8 md:p-12 space-y-8">
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">1. No Telemetry</h3>
+                <p class="text-gray-400 leading-relaxed">Glazed Client does <strong class="text-white">not</strong> collect, store, or transmit any personal data, usage statistics, analytics, or telemetry to us or any third party. The Software is fully open-source — you can verify this yourself by inspecting the code.</p>
+            </div>
 
-            <h3>2. Local Storage</h3>
-            <p>The Software may store configuration files and settings locally on your device (e.g., in your `.minecraft` folder). These files are strictly for the functionality of the client and are not shared.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">2. Local Storage</h3>
+                <p class="text-gray-400 leading-relaxed">The Software stores configuration files and module settings locally on your device within your <code class="bg-black/50 px-2 py-0.5 rounded text-gray-300 text-sm">.minecraft</code> folder. These files exist solely for the Software's functionality and never leave your machine.</p>
+            </div>
 
-            <h3>3. Third-Party Services</h3>
-            <p>The Software depends on third-party libraries and loaders (e.g., Fabric, Meteor Client). We are not responsible for the privacy practices of these third-party services. We encourage you to review their respective privacy policies.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">3. Discord Webhooks</h3>
+                <p class="text-gray-400 leading-relaxed">Some modules (such as Coord Snapper, Rain Noti, Llama ESP, Pillager ESP, and Advanced Stash Finder) support optional Discord webhook integration. If you choose to configure a webhook URL, the module will send data to that webhook.</p>
+                <p class="text-gray-400 leading-relaxed mt-2">This is entirely <strong class="text-white">opt-in</strong> and <strong class="text-white">user-configured</strong>. We do not provide, control, or receive data from any webhooks. The data goes directly from your game client to the Discord webhook URL you set up.</p>
+            </div>
 
-            <h3>4. Updates</h3>
-            <p>Any changes to this privacy policy will be posted on this page. Since the Software does not have an auto-update mechanism that fetches data from us, you are encouraged to check this page periodically.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">4. Third-Party Dependencies</h3>
+                <p class="text-gray-400 leading-relaxed">Glazed requires third-party software to function:</p>
+                <ul class="text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                    <li><strong class="text-white">Meteor Client</strong> — base client framework</li>
+                    <li><strong class="text-white">Fabric Loader & API</strong> — mod loading platform</li>
+                    <li><strong class="text-white">Baritone</strong> — pathfinding (optional)</li>
+                </ul>
+                <p class="text-gray-400 leading-relaxed mt-3">We are not responsible for the privacy practices of these third-party projects. Review their respective privacy policies for details on how they handle data.</p>
+            </div>
 
-            <h3>5. Contact</h3>
-            <p>If you have questions about this Privacy Policy, please contact us via our Discord community.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">5. This Website</h3>
+                <p class="text-gray-400 leading-relaxed">This website is a static site hosted on GitHub Pages. We do not use cookies, trackers, or analytics services. GitHub may collect standard server logs as part of their hosting — see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" class="text-brand-primary hover:text-brand-accent transition-colors">GitHub's Privacy Statement</a> for details.</p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">6. Changes</h3>
+                <p class="text-gray-400 leading-relaxed">Any changes to this policy will be posted on this page with an updated date. Since the Software has no auto-update mechanism that contacts our servers, check back here periodically.</p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">7. Contact</h3>
+                <p class="text-gray-400 leading-relaxed">Questions about this Privacy Policy? Reach out via our Discord community.</p>
+            </div>
         </div>
     </div>
 </Layout>

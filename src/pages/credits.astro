@@ -18,6 +18,33 @@ const staff = [
     { name: "aced", role: "Mod", image: "/aced.png" },
 ];
 
+const contributors = [
+    "A lot of them. Check on github/discord",
+];
+
+const openSourceProjects = [
+    {
+        name: "Meteor Client",
+        url: "https://meteorclient.com",
+        description: "The base modding framework Glazed is built on top of.",
+    },
+    {
+        name: "Baritone",
+        url: "https://github.com/cabaletta/baritone",
+        description: "Pathfinding AI used for automated movement and mining.",
+    },
+    {
+        name: "FabricMC",
+        url: "https://fabricmc.net",
+        description: "The mod loader and toolchain that makes it all possible.",
+    },
+    {
+        name: "Claude AI",
+        url: "https://claude.ai",
+        description: "AI assistant used during development.",
+    },
+];
+
 const techStack = ["Astro", "Tailwind CSS", "TypeScript", "Java", "Fabric API"];
 ---
 
@@ -33,7 +60,6 @@ const techStack = ["Astro", "Tailwind CSS", "TypeScript", "Java", "Fabric API"];
             </p>
         </div>
 
-        <!-- Developers Section -->
         <div class="mb-20">
             <h2
                 class="text-3xl font-heading font-bold text-white mb-8 border-l-4 border-brand-primary pl-4"
@@ -63,7 +89,6 @@ const techStack = ["Astro", "Tailwind CSS", "TypeScript", "Java", "Fabric API"];
             </div>
         </div>
 
-        <!-- Staff Section -->
         <div class="mb-20">
             <h2
                 class="text-3xl font-heading font-bold text-white mb-8 border-l-4 border-brand-accent pl-4"
@@ -93,7 +118,57 @@ const techStack = ["Astro", "Tailwind CSS", "TypeScript", "Java", "Fabric API"];
             </div>
         </div>
 
-        <!-- Tech Stack & Legal -->
+        <div class="mb-20">
+            <h2
+                class="text-3xl font-heading font-bold text-white mb-8 border-l-4 border-brand-primary pl-4"
+            >
+                Open Source
+            </h2>
+            <p class="text-gray-400 mb-8 max-w-2xl">
+                Glazed wouldn't exist without these projects. Huge thanks to everyone who builds and maintains them.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {
+                    openSourceProjects.map((project) => (
+                        <Card class="flex flex-col gap-2">
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                class="text-lg font-bold text-white hover:text-brand-primary transition-colors inline-flex items-center gap-2"
+                            >
+                                {project.name}
+                                <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <p class="text-gray-400 text-sm">{project.description}</p>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h2
+                class="text-3xl font-heading font-bold text-white mb-8 border-l-4 border-brand-accent pl-4"
+            >
+                GitHub Contributors
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                {
+                    contributors.map((name) => (
+                        <a
+                            href={`https://github.com/${name}`}
+                            target="_blank"
+                            class="px-4 py-2 rounded-full bg-brand-surface border border-white/10 text-gray-300 text-sm font-mono hover:border-brand-primary/50 hover:text-white transition-all"
+                        >
+                            @{name}
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="bg-brand-surface border border-white/5 rounded-xl p-8">
                 <h3 class="text-xl font-heading font-bold text-white mb-6">
@@ -108,10 +183,6 @@ const techStack = ["Astro", "Tailwind CSS", "TypeScript", "Java", "Fabric API"];
                         ))
                     }
                 </div>
-                <p class="mt-6 text-gray-400 text-sm">
-                    Special thanks to the Meteor Client development team for
-                    providing the base framework upon which this addon is built.
-                </p>
             </div>
 
             <div class="bg-brand-surface border border-white/5 rounded-xl p-8">

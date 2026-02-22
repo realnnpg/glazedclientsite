@@ -9,25 +9,49 @@ import Layout from '../layouts/Layout.astro';
                 <span class="text-white">Terms of </span>
                 <span class="text-brand-primary text-glow">Service</span>
             </h1>
+            <p class="text-gray-400 text-sm font-mono">Last updated: February 2026</p>
         </div>
 
-        <div class="prose prose-invert max-w-none bg-brand-surface border border-white/5 rounded-xl p-8 md:p-12">
-            <h3>1. Acceptance of Terms</h3>
-            <p>By downloading and using the Glazed Client addon ("the Software"), you agree to be bound by these Terms of Service.</p>
+        <div class="prose prose-invert max-w-none bg-brand-surface border border-white/5 rounded-xl p-8 md:p-12 space-y-8">
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">1. Acceptance of Terms</h3>
+                <p class="text-gray-400 leading-relaxed">By downloading, installing, or using Glazed Client ("the Software"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Software.</p>
+            </div>
 
-            <h3>2. Use at Your Own Risk</h3>
-            <p>The Software is provided "as is", without warranty of any kind, express or implied. The authors and copyright holders shall not be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.</p>
-            
-            <p>Using this software on multiplayer servers may violate their rules and terms of service. You are solely responsible for any consequences, including but not limited to account bans, suspensions, or restrictions.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">2. Use at Your Own Risk</h3>
+                <p class="text-gray-400 leading-relaxed">This project is provided <strong class="text-white">as-is</strong> with <strong class="text-white">no warranty</strong> of any kind, express or implied. The authors and contributors shall not be liable for any claim, damages, or other liability arising from the use of the Software.</p>
+                <div class="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+                    <p class="text-red-400 text-sm leading-relaxed font-medium">We are <strong>not responsible</strong> for any bans, data loss, in-game money loss, or any other consequences that may arise from using this addon. If you lose items, get banned, or otherwise suffer any kind of issue — that's on you. You've been warned. Use an alt.</p>
+                </div>
+            </div>
 
-            <h3>3. Modification and Distribution</h3>
-            <p>Glazed Client is open-source software. You are free to view, fork, and modify the code for personal use. Redistribution of modified versions is permitted under the terms of the open-source license (if applicable).</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">3. Intended Use</h3>
+                <p class="text-gray-400 leading-relaxed">Glazed Client is a Meteor Client addon designed specifically for <strong class="text-white">DonutSMP</strong>. Most features are built to work only on that server. While some basic modules may function elsewhere, full functionality is intended for DonutSMP only.</p>
+                <p class="text-gray-400 leading-relaxed mt-2">Using this software on any multiplayer server may violate that server's rules and terms of service. You are solely responsible for any consequences including account bans, suspensions, or restrictions.</p>
+            </div>
 
-            <h3>4. No Affiliation</h3>
-            <p>Glazed Client is an independent project and is not affiliated with, endorsed by, or associated with Mojang Studios, Microsoft Corporation, or any specific Minecraft server network.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">4. Open Source</h3>
+                <p class="text-gray-400 leading-relaxed">Glazed Client is open-source. You are free to view, fork, and modify the source code. The code contains no token loggers, backdoors, or obfuscation. If you're unsure, inspect it yourself or compile from source.</p>
+                <p class="text-gray-400 leading-relaxed mt-2">Redistribution of modified versions is permitted under the project's license terms.</p>
+            </div>
 
-            <h3>5. Changes to Terms</h3>
-            <p>We reserve the right to modify these terms at any time. Continued use of the Software constitutes acceptance of any such changes.</p>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">5. No Affiliation</h3>
+                <p class="text-gray-400 leading-relaxed">Glazed Client is an independent project. It is not affiliated with, endorsed by, or associated with Mojang Studios, Microsoft Corporation, DonutSMP, or the Meteor Client team.</p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">6. Dependencies</h3>
+                <p class="text-gray-400 leading-relaxed">The Software requires third-party dependencies (Meteor Client, Fabric API, optionally Baritone). We provide these for convenience but do not maintain or control them. Their use is governed by their own respective licenses and terms.</p>
+            </div>
+
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">7. Changes to Terms</h3>
+                <p class="text-gray-400 leading-relaxed">We reserve the right to modify these terms at any time without notice. Continued use of the Software after changes constitutes acceptance of the updated terms.</p>
+            </div>
         </div>
     </div>
 </Layout>
