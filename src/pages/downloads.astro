@@ -4,24 +4,24 @@ import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
 const latestRelease = {
-    version: "v16.1",
+    version: "v17",
     date: "Just now",
     assets: [
         {
             name: "Glazed 1.21.4",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v16.1/glazed-1.21.4-n-16.1.jar",
-            size: "",
-            sha256: ""
-        },
-        {
-            name: "Glazed 1.21.10",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v16.1/glazed-1.21.10-n-16.1.jar",
+            url: "/downloads/glazed-1.21.4-n-17.jar",
             size: "",
             sha256: ""
         },
         {
             name: "Glazed 1.21.11",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v16.1/glazed-1.21.11-n-16.1.jar",
+            url: "/downloads/glazed-1.21.11-n-17.jar",
+            size: "",
+            sha256: ""
+        },
+        {
+            name: "Glazed 26.1.2",
+            url: "/downloads/glazed-26.1.2-n-17.jar",
             size: "",
             sha256: ""
         },
@@ -42,6 +42,7 @@ const dependencies = [
             { mc: "1.21.8", file: "meteor-client-1.21.8-69.jar" },
             { mc: "1.21.10", file: "meteor-client-1.21.10-54.jar" },
             { mc: "1.21.11", file: "meteor-client-1.21.11-63.jar" },
+            { mc: "26.1.2", file: "meteor-client-26.1.2-41.jar" },
         ],
     },
     {
@@ -57,6 +58,7 @@ const dependencies = [
             { mc: "1.21.8", file: "fabric-api-0.136.1+1.21.8.jar" },
             { mc: "1.21.10", file: "fabric-api-0.138.4+1.21.10.jar" },
             { mc: "1.21.11", file: "fabric-api-0.141.3+1.21.11.jar" },
+            { mc: "26.1.2", file: "fabric-api-0.155.2+26.1.2.jar" },
         ],
     },
     {
@@ -72,6 +74,7 @@ const dependencies = [
             { mc: "1.21.8", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.8.jar" },
             { mc: "1.21.10", file: "Baritone-Client-Mod-Meteor-Fabric-1.21.10.jar" },
             { mc: "1.21.11", file: "baritone-meteor-1.21.11.jar" },
+            { mc: "26.1.2", file: "baritone-meteor-26.1.jar" },
         ],
     },
 ];
