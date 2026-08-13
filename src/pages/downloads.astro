@@ -4,24 +4,24 @@ import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
 const latestRelease = {
-    version: "v17",
-    date: "Just now",
+    version: "v17.1",
+    date: "Aug 2026",
     assets: [
         {
             name: "Glazed 1.21.4",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v17/glazed-1.21.4-n-17.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v17.1/glazed-1.21.4-n-17.1.jar",
             size: "",
             sha256: ""
         },
         {
             name: "Glazed 1.21.11",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v17/glazed-1.21.11-n-17.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v17.1/glazed-1.21.11-n-17.1.jar",
             size: "",
             sha256: ""
         },
         {
             name: "Glazed 26.1.2",
-            url: "https://github.com/realnnpg/Glazed/releases/download/v17/glazed-26.1.2-n-17.jar",
+            url: "https://github.com/realnnpg/Glazed/releases/download/v17.1/glazed-26.1.2-n-17.1.jar",
             size: "",
             sha256: ""
         },
@@ -199,13 +199,13 @@ const dependencies = [
                                         data-dep-select={dep.slug}
                                         class="bg-black/40 border border-white/10 rounded px-2 py-1 text-sm text-gray-300 font-mono focus:border-brand-primary/50 focus:outline-none transition-colors cursor-pointer flex-1"
                                     >
-                                        {dep.versions.map((v) => (
-                                            <option value={`/deps/${dep.slug}/${v.file}`}>{v.mc}</option>
+                                        {dep.versions.map((v, i) => (
+                                            <option value={`/deps/${dep.slug}/${v.file}`} selected={i === dep.versions.length - 1}>{v.mc}</option>
                                         ))}
                                     </select>
                                     <a
                                         data-dep-link={dep.slug}
-                                        href={`/deps/${dep.slug}/${dep.versions[0].file}`}
+                                        href={`/deps/${dep.slug}/${dep.versions[dep.versions.length - 1].file}`}
                                         download
                                         class="text-gray-400 text-sm font-bold hover:text-white flex items-center gap-1 transition-colors whitespace-nowrap"
                                     >
